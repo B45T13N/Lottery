@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ParticipationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('page.form');
 });
+
+Route::post('/participation', [ParticipationController::class, 'store'])->name('participation.store');
+
+Route::view('/confirmation', 'page.confirmation')->name('confirmation');
